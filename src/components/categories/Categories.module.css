@@ -1,0 +1,62 @@
+.wrapper {
+    width: 100%;
+    background-color: #fffbfb;
+}
+
+.categories {
+    width: 80%;
+}
+
+
+.categories  h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #474853;
+}
+.job-categories {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1rem 0;
+  }
+  
+
+
+  .job-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+
+  }
+
+  .job-category:hover {
+    transform: scale(1.1);
+}
+  
+  .icon {
+    font-size: 24px;
+    border-radius: 50%;
+    background-color: #844d36;
+    color: #fff;
+  }
+  
+  .title {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 70%;
+    text-align: center;
+  }
+  
+  .job-num {
+    background-color: #fde3e3;
+    color: #844d36;
+    margin-top: .6rem;
+    padding: .2rem .8rem;
+  }

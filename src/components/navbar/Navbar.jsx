@@ -1,4 +1,5 @@
 "use client"
+
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from "./Navbar.module.css"
@@ -9,12 +10,12 @@ function NavBar() {
     const [navbar, setNavbar] = useState(false);
     return (
         <div>
-            <nav className={`w-full fixed top-0 left-0 right-0 z-10  ${styles.header}`}>
-                <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+            <nav className={`w-full top-0 left-0 right-0 z-10  ${styles.header}`}>
+                <div className={`justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 ${styles.wrapper}`}>
                     <div>
-                        <div className="flex items-center justify-between py-3 md:py-5 md:block">
+                        <div className={`flex items-center justify-between py-3 md:py-5 md:block ${styles.logo}`}>
                             <Link href="/">
-                                <h2 className="text-2xl text-white font-bold ">MyJobs</h2>
+                                <h2 className="text-3xl font-bold ">MyJobs</h2>
                             </Link>
                             <div className="md:hidden">
                                 <button
@@ -38,37 +39,47 @@ function NavBar() {
                         <div
                             className={`flex-1 justify-self-center items-center md:block md:pb-0 md:mt-0 ${navbar ? 'p-12 md:p-0 block' : 'hidden'}`}
                         >
-                            <ul className="h-screen md:h-auto  md:flex items-center justify-center ">
-                                <li className="pb-6 text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 border-white  md:hover:text-white md:hover:bg-transparent">
+                            <ul className={`h-screen md:h-auto  md:flex items-center justify-center ${styles.ul}`}>
+                                <li className="pb-6 text-white py-2 md:px-4 text-center border-b-2 md:border-b-0 border-white md:hover:bg-transparent">
                                     <Link href="/" onClick={() => setNavbar(!navbar)}>
                                         Home
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-white py-2 px-6 text-center  border-b-2 md:border-b-0 border-white  md:hover:text-white md:hover:bg-transparent">
+                                <li className="pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0 border-white md:hover:bg-transparent">
                                     <Link href="/jobs" onClick={() => setNavbar(!navbar)}>
                                         Find a job
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-white py-2 px-6 text-center  border-b-2 md:border-b-0  border-white  md:hover:text-white md:hover:bg-transparent">
+                                <li className="pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0  border-white md:hover:bg-transparent">
                                     <Link href="/contact" onClick={() => setNavbar(!navbar)}>
                                         Contact
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-white py-2 px-6 text-center  border-b-2 md:border-b-0 border-white  md:hover:text-white md:hover:bg-transparent">
-                                    <Link href="/signup" onClick={() => setNavbar(!navbar)}>
-                                        Signup
-                                    </Link>
+
+
+                                <li className="pb-6 text-white py-2 px-4 text-center border-b-2 md:border-b-0 border-white md:hover:bg-transparent">
+                                    <div className={`rounded ${styles.btn}`}>
+                                        <Link href="/signup" onClick={() => setNavbar(!navbar)}>
+                                            Signup
+                                        </Link>
+                                    </div>
                                 </li>
-                                <li className="pb-6 text-white py-2 px-6 text-center  border-b-2 md:border-b-0  border-white  md:hover:text-white md:hover:bg-transparent">
-                                    <Link href="/login" onClick={() => setNavbar(!navbar)}>
-                                        Login
-                                    </Link>
+
+                                <li className="pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0  border-white md:hover:bg-transparent">
+                                    <div className={`rounded ${styles.btn}`}>
+                                        <Link href="/login" onClick={() => setNavbar(!navbar)}>
+                                            Login
+                                        </Link>
+                                    </div>
                                 </li>
-                                <li className="pb-6 text-white py-2 px-6 text-center  border-b-2 md:border-b-0  border-white  md:hover:text-white md:hover:bg-transparent">
-                                    <Link href="/logout" onClick={() => setNavbar(!navbar)}>
-                                        Logout
-                                    </Link>
-                                </li>
+                                {/* <li className={`pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0  border-white md:hover:bg-transparent ${styles["nav-button"]}`}>
+                                    <div className={`rounded ${styles.btn}`}>
+                                        <Link href="/logout" onClick={() => setNavbar(!navbar)}>
+                                            Logout
+                                        </Link>
+                                    </div>
+                                </li> */}
+
 
                             </ul>
                         </div>
