@@ -2,7 +2,7 @@
 import styles from "./Home.module.css"
 import { FaUser } from 'react-icons/fa';
 import { FaLocationDot } from "react-icons/fa6";
-import Categories from "../components/categories/Categories"
+
 export default function Home() {
   return (
     <>
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Categories />
+
     </>
   )
 }

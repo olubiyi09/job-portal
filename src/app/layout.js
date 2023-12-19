@@ -2,6 +2,8 @@
 import './globals.css'
 import { Toaster } from 'sonner'
 import Navbar from "../components/navbar/Navbar"
+import Categories from '../components/categories/Categories'
+import Trust from '../components/trust/Trust'
 
 
 
@@ -18,6 +20,8 @@ export default function RootLayout({ children }) {
         <Navbar />
         <hr />
         {children}
+        <Categories />
+        <Trust />
       </body>
     </html>
   )

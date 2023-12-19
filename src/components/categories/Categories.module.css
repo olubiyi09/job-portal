@@ -60,3 +60,27 @@
     margin-top: .6rem;
     padding: .2rem .8rem;
   }
+
+
+  @media screen and (max-width: 840px) {
+    .categories {
+      width: 90%;
+    }
+
+    .job-categories {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+  }
+  @media screen and (max-width: 600px) {
+    .categories {
+      width: 100%;
+    }
+    .categories  h1 {
+      font-size: 1.8rem;
+  }
+  .job-categories {
+    width: 90%;
+    margin: auto;
+  }
+  }
