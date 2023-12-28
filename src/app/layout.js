@@ -4,6 +4,8 @@ import { Toaster } from 'sonner'
 import Navbar from "../components/navbar/Navbar"
 import Categories from '../components/categories/Categories'
 import Trust from '../components/trust/Trust'
+import Jobs from '../components/jobs/Jobs'
+import Footer from '../components/footer/Footer'
 
 
 
@@ -22,6 +24,8 @@ export default function RootLayout({ children }) {
         {children}
         <Categories />
         <Trust />
+        <Jobs />
+        <Footer />
       </body>
     </html>
   )
