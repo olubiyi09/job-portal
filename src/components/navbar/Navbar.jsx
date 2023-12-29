@@ -5,9 +5,44 @@ import { useState } from 'react';
 import styles from "./Navbar.module.css"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
+import { Modal } from 'antd';
+import LoginPage from '../../app/login/page';
+import SignUp from '../../app/signup/page';
 
 function NavBar() {
     const [navbar, setNavbar] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [issModalOpen, setIssModalOpen] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const displayModal = () => {
+        setIssModalOpen(true);
+    };
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setIssModalOpen(false);
+    };
+    const handleOk = () => {
+        setIsModalOpen(false);
+        setIssModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+        setIssModalOpen(false);
+    };
+
+    const handleLogin = () => {
+        displayModal()
+        setNavbar(!navbar)
+    }
+    const handleSignup = () => {
+        showModal()
+        setNavbar(!navbar)
+    }
     return (
         <div>
             <nav className={`w-full top-0 left-0 right-0 z-10  ${styles.header}`}>
@@ -58,18 +93,30 @@ function NavBar() {
 
 
                                 <li className="pb-6 text-white py-2 px-4 text-center border-b-2 md:border-b-0 border-white md:hover:bg-transparent">
-                                    <div className={`rounded ${styles.btn}`}>
+                                    {/* <div className={`rounded ${styles.btn}`}>
                                         <Link href="/signup" onClick={() => setNavbar(!navbar)}>
                                             Signup
-                                        </Link>
+                                        </Link> */}
+
+                                    <div className={`rounded ${styles.btn}`}>
+                                        <div onClick={() => handleSignup()}>
+                                            Signup
+                                        </div>
                                     </div>
+                                    {/* </div> */}
                                 </li>
 
                                 <li className="pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0  border-white md:hover:bg-transparent">
-                                    <div className={`rounded ${styles.btn}`}>
+                                    {/* <div className={`rounded ${styles.btn}`}>
                                         <Link href="/login" onClick={() => setNavbar(!navbar)}>
                                             Login
                                         </Link>
+                                    </div> */}
+
+                                    <div className={`rounded ${styles.btn}`}>
+                                        <div onClick={() => handleLogin()}>
+                                            Login
+                                        </div>
                                     </div>
                                 </li>
                                 {/* <li className={`pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0  border-white md:hover:bg-transparent ${styles["nav-button"]}`}>
@@ -85,8 +132,20 @@ function NavBar() {
                         </div>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </nav >
+
+            {/* <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button> */}
+            <Modal Modal open={isModalOpen} nOk={handleOk} onCancel={handleCancel} footer={null} >
+                {/* <LoginPage closeModal={closeModal} />   */}
+                <SignUp closeModal={closeModal} />
+            </Modal >
+            <Modal Modal open={issModalOpen} nOk={handleOk} onCancel={handleCancel} footer={null} >
+                <LoginPage closeModal={closeModal} />
+                {/* <SignUp closeModal={closeModal} /> */}
+            </Modal >
+        </div >
     );
 }
 

@@ -12,7 +12,7 @@ export const validateEmail = (email) => {
     );
 };
 
-const SignUp = () => {
+const SignUp = ({ closeModal }) => {
     const [user, setUser] = useState({
         name: "",
         email: "",
@@ -47,7 +47,8 @@ const SignUp = () => {
             const response = await axios.post("/api/users/signup", user);
             console.log("Signup successful", response.data);
             toast.success("Signup successful")
-            router.push("/login")
+            router.push("/")
+            closeModal();
         } catch (error) {
             console.log("Signup failed", error.response.data);
             toast.error(error.response.data.message || "Signup failed");
@@ -57,12 +58,9 @@ const SignUp = () => {
 
     }
     return (
-        <div className="flex items-center justify-center min-h-screen py-2">
-            <div className={`flex items-center justify-center shadow-lg ${styles.wrapper}`}>
+        <div className="flex items-center justify-center ">
+            <div className={`flex items-center justify-center ${styles.wrapper}`}>
 
-                <div className={`lg:w-96 flex flex-col items-center ${styles.left}`}>
-                    <img src="./signup.jpg" alt="" />
-                </div>
                 <div className={`lg:w-96 md:w-96 sm:w-auto s p-6 rounded-md ${styles.form}`}>
                     <form className="mt-3">
                         <h1 className="text-3xl block text-center font-semibold">Sign up</h1>
