@@ -6,8 +6,8 @@ import styles from "./Navbar.module.css"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 import { Modal } from 'antd';
-import LoginPage from '../../app/login/page';
-import SignUp from '../../app/signup/page';
+import LoginPage from '../login/Login';
+import SignUp from '../signup/Signup';
 
 function NavBar() {
     const [navbar, setNavbar] = useState(false);
@@ -41,6 +41,10 @@ function NavBar() {
     }
     const handleSignup = () => {
         showModal()
+        setNavbar(!navbar)
+    }
+    const loginProps = () => {
+        displayModal()
         setNavbar(!navbar)
     }
     return (
@@ -93,25 +97,15 @@ function NavBar() {
 
 
                                 <li className="pb-6 text-white py-2 px-4 text-center border-b-2 md:border-b-0 border-white md:hover:bg-transparent">
-                                    {/* <div className={`rounded ${styles.btn}`}>
-                                        <Link href="/signup" onClick={() => setNavbar(!navbar)}>
-                                            Signup
-                                        </Link> */}
 
                                     <div className={`rounded ${styles.btn}`}>
                                         <div onClick={() => handleSignup()}>
                                             Signup
                                         </div>
                                     </div>
-                                    {/* </div> */}
                                 </li>
 
                                 <li className="pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0  border-white md:hover:bg-transparent">
-                                    {/* <div className={`rounded ${styles.btn}`}>
-                                        <Link href="/login" onClick={() => setNavbar(!navbar)}>
-                                            Login
-                                        </Link>
-                                    </div> */}
 
                                     <div className={`rounded ${styles.btn}`}>
                                         <div onClick={() => handleLogin()}>
@@ -119,14 +113,6 @@ function NavBar() {
                                         </div>
                                     </div>
                                 </li>
-                                {/* <li className={`pb-6 text-white py-2 px-4 text-center  border-b-2 md:border-b-0  border-white md:hover:bg-transparent ${styles["nav-button"]}`}>
-                                    <div className={`rounded ${styles.btn}`}>
-                                        <Link href="/logout" onClick={() => setNavbar(!navbar)}>
-                                            Logout
-                                        </Link>
-                                    </div>
-                                </li> */}
-
 
                             </ul>
                         </div>
@@ -134,69 +120,17 @@ function NavBar() {
                 </div>
             </nav >
 
-            {/* <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button> */}
             <Modal Modal open={isModalOpen} nOk={handleOk} onCancel={handleCancel} footer={null} >
-                {/* <LoginPage closeModal={closeModal} />   */}
-                <SignUp closeModal={closeModal} />
+
+                <SignUp closeModal={closeModal} openLogin={loginProps} />
             </Modal >
             <Modal Modal open={issModalOpen} nOk={handleOk} onCancel={handleCancel} footer={null} >
-                <LoginPage closeModal={closeModal} />
-                {/* <SignUp closeModal={closeModal} /> */}
+                <LoginPage closeModal={closeModal} openSignup={handleSignup} />
+
             </Modal >
+
         </div >
     );
 }
 
 export default NavBar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import styles from "./Navbar.module.css"
-// import Link from 'next/link'
-// import { GiHamburgerMenu } from "react-icons/gi";
-
-// const Navbar = () => {
-//     return (
-//         <header className={`flex justify-between items-center ${styles.header}`}>
-//             <nav className="relative flex justify-between items-center w-full px-10 py-2 text-white">
-//                 {/* <nav className="py-2 text-white"> */}
-
-//                 {/* <div className={` relative flex h-16 items-center justify-between`}> */}
-
-//                 <div className={`${styles.logo}`}>
-//                     <h1 className={`text-3xl font-bold`}>MyJobs</h1>
-//                 </div>
-//                 <div className={`flex gap-10 ${styles["nav-wrapper"]}`}>
-//                     <Link href="/">Home</Link>
-//                     <Link href="/jobs">Find a job</Link>
-//                     <Link href="/">Contact</Link>
-//                     <Link href="/signup">Sign up</Link>
-//                     <Link href="/login">Login</Link>
-//                     <Link href="/logout">Logout</Link>
-//                 </div>
-//                 <div className={`${styles["hamburger-icon"]}`}>
-//                     <GiHamburgerMenu size={36} />
-//                     {/* </div> */}
-//                 </div>
-//             </nav>
-//         </header>
-//     )
-// }
-
-// export default Navbar
